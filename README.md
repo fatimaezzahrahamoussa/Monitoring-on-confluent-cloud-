@@ -3,14 +3,14 @@
 The main objective of this project is to provide key steps to configure Prometheus to scarify metrics from the Confleunt cloud API metric endpoint and work as a data source for Grafana which is a dashboard creation and visualization tool. 
 ![image](https://user-images.githubusercontent.com/103249046/178447755-ba18bcb5-6818-45f2-ae46-bea2cd863cb6.png)
 
-##Requirements:
--A Confluent account  cloud and organization 
+## Requirements:
+-A Confluent account cloud and organization 
 -Confluent cli 
 -Docker 
 
-##Steps : 
+## Steps : 
 
-###Step1: Create  Cluster API KEY 
+### Step1: Create  Cluster API KEY 
 
 First , lets strat by creating  a service account and give it the role of a Metrics Viewer either by creating it manually on coufluent cloud or by y using the following cli command. 
 1-Login into confluent cloud account , this step requieres the confluent cloud account username and password .
@@ -30,6 +30,7 @@ $confluent iam rbac role-binding create --role MetricsViewer --principal User:$s
 ```
 
 Now , let's assign an api key to our Metrics viewer service account . The cluster API Key gives us acces to retrieve metrics from the confluent cloud API metrics . You can create it directly on confluent cloud manualy or by using the following cli command . 
+
 ```bash
 $confluent api-key create --resource cloud --service-account $sa-id
 ```
